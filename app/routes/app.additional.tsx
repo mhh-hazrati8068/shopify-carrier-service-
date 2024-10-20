@@ -138,7 +138,7 @@ export const action: ActionFunction = async ({ request }) => {
     {
       variables: {
         input: {
-          name: "Bearer deliv ery",
+          name: "Bearer delivery",
           callbackUrl: `https://us-central1-bearer-seyco-development.cloudfunctions.net/shopifyPricingAPIv1dot0/?api_key=${newCredentials.apiKey}&api_secret=${newCredentials.apiSecret}`,
           active: true,
           id: "gid://shopify/DeliveryCarrierService/88402985296",
@@ -171,7 +171,7 @@ const SettingsPage: React.FC = () => {
   // Check if any carrier service has "Bearer delivery" in formattedName
   useEffect(() => {
     const hasBearer = availableCarrierServices.some((service) =>
-      service.carrierService.formattedName.includes("Bearer delivery"),
+      service.carrierService.formattedName.includes("Bearer deliv ery"),
     );
     console.log(hasBearer);
     setHasBearerDelivery(hasBearer);
