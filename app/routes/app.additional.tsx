@@ -121,8 +121,8 @@ export const action: ActionFunction = async ({ request }) => {
   // Proceed with mutation if service doesn't exist
   const mutationResponse = await admin.graphql(
     `#graphql
-      mutation carrierServiceCreate($input: DeliveryCarrierServiceCreateInput!) {
-        carrierServiceCreate(input: $input) {
+      mutation carrierServiceUpdate($input: DeliveryCarrierServiceUpdateInput!) {
+        carrierServiceUpdate(input: $input) {
           carrierService {
             formattedName
             callbackUrl
@@ -138,10 +138,10 @@ export const action: ActionFunction = async ({ request }) => {
     {
       variables: {
         input: {
-          name: "Bearer delivery",
+          name: "Bearer deliv ery",
           callbackUrl: `https://us-central1-bearer-seyco-development.cloudfunctions.net/shopifyPricingAPIv1dot0/?api_key=${newCredentials.apiKey}&api_secret=${newCredentials.apiSecret}`,
           active: true,
-          // id: "gid://shopify/DeliveryCarrierService/88402985296",
+          id: "gid://shopify/DeliveryCarrierService/88402985296",
           supportsServiceDiscovery: true,
         },
       },
