@@ -121,8 +121,8 @@ export const action: ActionFunction = async ({ request }) => {
   // Proceed with mutation if service doesn't exist
   const mutationResponse = await admin.graphql(
     `#graphql
-      mutation carrierServiceUpdate($input: DeliveryCarrierServiceUpdateInput!) {
-        carrierServiceUpdate(input: $input) {
+      mutation carrierServiceCreate($input: DeliveryCarrierServiceCreateInput!) {
+        carrierServiceCreate(input: $input) {
           carrierService {
             formattedName
             callbackUrl
@@ -141,7 +141,7 @@ export const action: ActionFunction = async ({ request }) => {
           name: "Bearer delivery",
           callbackUrl: `https://us-central1-bearer-seyco-development.cloudfunctions.net/shopifyPricingAPIv1dot0/?api_key=${newCredentials.apiKey}&api_secret=${newCredentials.apiSecret}`,
           active: true,
-          id: "gid://shopify/DeliveryCarrierService/88402985296",
+          // id: "gid://shopify/DeliveryCarrierService/88402985296",
           supportsServiceDiscovery: true,
         },
       },
@@ -171,7 +171,7 @@ const SettingsPage: React.FC = () => {
   // Check if any carrier service has "Bearer delivery" in formattedName
   useEffect(() => {
     const hasBearer = availableCarrierServices.some((service) =>
-      service.carrierService.formattedName.includes("Bearer d   elivery"),
+      service.carrierService.formattedName.includes("Bearer delivery"),
     );
     console.log(hasBearer);
     setHasBearerDelivery(hasBearer);

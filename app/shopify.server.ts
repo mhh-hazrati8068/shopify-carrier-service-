@@ -5,13 +5,11 @@ import {
   shopifyApp,
   LATEST_API_VERSION,
 } from "@shopify/shopify-app-remix/server";
-import { PrismaSessionStorage } from "@shopify/shopify-app-session-storage-prisma";
 import { MongoDBSessionStorage } from "@shopify/shopify-app-session-storage-mongodb";
 import { restResources } from "@shopify/shopify-api/rest/admin/2024-07";
-import prisma from "./db.server";
 
-const dbUrl = new URL("mongodb+srv://apps:SwlZ2gLl7RYw9udK@clusterbearerdev.6mxw2.mongodb.net"); // Example URL, replace it with your actual URL
-const dbName = "ClusterBearerDev"; // Replace with your actual database name
+const dbUrl = new URL("mongodb+srv://apps:SwlZ2gLl7RYw9udK@clusterbearerdev.6mxw2.mongodb.net");
+const dbName = "ClusterBearerDev";
 
 // Optional: provide extra options if necessary
 const opts = {};
