@@ -30,6 +30,7 @@ function Extension() {
   const shippingAddress = useShippingAddress();
 
   useEffect(() => {
+    console.log("runs")
     const extractOrderNumber = "";
     // deliveryGroups.current[0].deliveryOptions[0].description;
     const extractedOrderNumber = extractOrderNumber.split(": ")[1];
