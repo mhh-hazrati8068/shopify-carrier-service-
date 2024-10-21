@@ -29,8 +29,9 @@ function Extension() {
 
   const shippingAddress = useShippingAddress();
 
+  console.log("run outside the effect ");
   useEffect(() => {
-    console.log("runs")
+    console.log("runs");
     const extractOrderNumber = "";
     // deliveryGroups.current[0].deliveryOptions[0].description;
     const extractedOrderNumber = extractOrderNumber.split(": ")[1];
@@ -61,7 +62,8 @@ function Extension() {
   }
   // Function to fetch data from Prisma via the API
   async function fetchReservationData(priceListId, currentOrderNumber) {
-    const appUrl = process.env.SHOPIFY_APP_URL;
+    const appUrl =
+      "https://bearer-shopify-development-65a2480c4cb8.herokuapp.com";
     console.log(appUrl);
     const requestData = {
       shop: shop.myshopifyDomain,

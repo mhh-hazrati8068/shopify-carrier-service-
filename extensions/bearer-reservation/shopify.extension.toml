@@ -17,7 +17,7 @@ type = "ui_extension"
 
 [[extensions.targeting]]
 module = "./src/Checkout.jsx"
-# target = "Checkout::Dynamic::Render"
+# target = "purchase.checkout.block.render"
 target = "purchase.thank-you.block.render"
 
 [extensions.capabilities]
