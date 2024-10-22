@@ -9,7 +9,7 @@ export const action: ActionFunction = async ({
     return new Response("Invalid request method", {
       status: 405,
       headers: {
-        "Access-Control-Allow-Origin": "https://extensions.shopifycdn.com", // Update with the allowed origin
+        "Access-Control-Allow-Origin": "*", // Update with the allowed origin
         "Access-Control-Allow-Methods": "POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
@@ -23,7 +23,7 @@ export const action: ActionFunction = async ({
     return new Response("Invalid JSON payload", {
       status: 400,
       headers: {
-        "Access-Control-Allow-Origin": "https://extensions.shopifycdn.com", // Update with the allowed origin
+        "Access-Control-Allow-Origin": "*", // Update with the allowed origin
       },
     });
   }
@@ -34,7 +34,7 @@ export const action: ActionFunction = async ({
     return new Response("shopDomain parameter must be a valid string", {
       status: 400,
       headers: {
-        "Access-Control-Allow-Origin": "https://extensions.shopifycdn.com", // Update with the allowed origin
+        "Access-Control-Allow-Origin": "*", // Update with the allowed origin
       },
     });
   }
@@ -47,7 +47,7 @@ export const action: ActionFunction = async ({
     return new Response("No credentials found for the given shopDomain", {
       status: 404,
       headers: {
-        "Access-Control-Allow-Origin": "https://extensions.shopifycdn.com", // Update with the allowed origin
+        "Access-Control-Allow-Origin": "*", // Update with the allowed origin
       },
     });
   }
@@ -55,7 +55,7 @@ export const action: ActionFunction = async ({
   // Return the credentials with CORS headers
   return json(credential, {
     headers: {
-      "Access-Control-Allow-Origin": "https://extensions.shopifycdn.com", // Update with Shopify's domain
+      "Access-Control-Allow-Origin": "*", // Update with Shopify's domain
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
     },

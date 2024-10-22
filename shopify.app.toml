@@ -3,7 +3,7 @@
 client_id = "6483331d89a2f5d7a5052b2e0ee2898a"
 name = "bearer carrier-service"
 handle = "bearer-carrier-service"
-application_url = "https://bearer-shopify-development-65a2480c4cb8.herokuapp.com/"
+application_url = "https://bearer-shopify-development-65a2480c4cb8.herokuapp.com"
 embedded = true
 
 [build]
