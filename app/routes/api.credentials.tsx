@@ -4,28 +4,11 @@ import db from "../db.server";
 export const action: ActionFunction = async ({
   request,
 }): Promise<Response> => {
-  const allowedOrigin = "*"; // Update with the specific origin if needed
-
-  // Handle preflight OPTIONS request
-  if (request.method === "OPTIONS") {
-    return new Response(null, {
-      status: 204,
-      headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
-    });
-  }
-
-  // Handle non-POST requests
   if (request.method !== "POST") {
     return new Response("Invalid request method", {
       status: 405,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Origin": "*", // CORS header
       },
     });
   }
@@ -37,7 +20,7 @@ export const action: ActionFunction = async ({
     return new Response("Invalid JSON payload", {
       status: 400,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": "*", // CORS header
       },
     });
   }
@@ -48,7 +31,7 @@ export const action: ActionFunction = async ({
     return new Response("shopDomain parameter must be a valid string", {
       status: 400,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": "*", // CORS header
       },
     });
   }
@@ -61,17 +44,14 @@ export const action: ActionFunction = async ({
     return new Response("No credentials found for the given shopDomain", {
       status: 404,
       headers: {
-        "Access-Control-Allow-Origin": allowedOrigin,
+        "Access-Control-Allow-Origin": "*", // CORS header
       },
     });
   }
 
-  // Return the credentials with CORS headers
   return json(credential, {
     headers: {
-      "Access-Control-Allow-Origin": allowedOrigin,
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Origin": "*", // CORS header
     },
   });
 };

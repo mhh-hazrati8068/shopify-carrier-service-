@@ -29,7 +29,6 @@ function Extension() {
 
   const shippingAddress = useShippingAddress();
 
-  console.log("run outside the effect ");
   useEffect(() => {
     console.log("runs");
     const extractOrderNumber = "";
@@ -78,7 +77,7 @@ function Extension() {
         body: JSON.stringify(requestData), // Send the request data
       });
 
-      if (response.ok) {
+      if (response.status === 200) {
         const data = await response.json();
         const decryptedApiKey = decrypt(data.apiKey);
         const decryptedApiSecret = decrypt(data.apiSecret);
@@ -92,7 +91,7 @@ function Extension() {
         );
         console.log("reservation", decryptedApiKey, decryptedApiSecret);
       } else {
-        console.error("Failed to fetch reservation data:", response.statusText);
+        console.error("Failed to fetch reservation data:", response);
       }
     } catch (error) {
       console.error(
