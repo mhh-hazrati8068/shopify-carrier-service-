@@ -72,8 +72,9 @@ function Extension() {
       const response = await fetch(appUrl + "/api/credentials", {
         method: "POST", // Change to POST method
         headers: {
-          "Content-Type": "application/json", // Set the content type
+          "Content-Type": "application/json",
         },
+        mode: "cors",
         body: JSON.stringify(requestData), // Send the request data
       });
 
