@@ -7,7 +7,7 @@ export const action: ActionFunction = async ({
 }): Promise<Response> => {
   // Define your CORS options
   const corsOptions = {
-    origin: "*", // Allow requests from any origin
+    origin: "https://extensions.shopifycdn.com", // Allow requests from any origin
     methods: ["POST"], // Only allow POST requests
     headers: ["Content-Type"], // Only allow Content-Type header
   };
